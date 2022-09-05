@@ -43,7 +43,7 @@ namespace image_utility {
     private:
         ASurfaceTexture *surface_texture;
         ANativeWindow *window;
-        ANativeWindow_Buffer window_buffer;
+        ANativeWindow_Buffer window_buffer{};
         int32_t width, height;
     public:
         surface_texture_accessor_R8G8B8X8(JNIEnv *const env, const jobject &surface_texture);

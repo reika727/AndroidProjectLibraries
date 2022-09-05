@@ -4,7 +4,7 @@
 image_utility::image_accessor_YUV_420_888::image_accessor_YUV_420_888(JNIEnv *const env, const jobject &image)
 {
     jclass class_image = env->GetObjectClass(image);
-    jobjectArray plane_array = static_cast<jobjectArray>(
+    auto plane_array = reinterpret_cast<jobjectArray>(
             env->CallObjectMethod(image, env->GetMethodID(class_image, "getPlanes", "()[Landroid/media/Image$Plane;"))
     );
     jobject y_plane = env->GetObjectArrayElement(plane_array, 0);
@@ -35,7 +35,7 @@ image_utility::surface_texture_accessor_R8G8B8X8::surface_texture_accessor_R8G8B
           width(ANativeWindow_getWidth(window)), height(ANativeWindow_getHeight(window))
 {
     ANativeWindow_setBuffersGeometry(window, 0, 0, AHARDWAREBUFFER_FORMAT_R8G8B8X8_UNORM);
-    if (ANativeWindow_lock(window, &window_buffer, NULL)) {
+    if (ANativeWindow_lock(window, &window_buffer, nullptr)) {
         ANativeWindow_release(window);
         ASurfaceTexture_release(surface_texture);
         throw std::runtime_error("lock failed.");
