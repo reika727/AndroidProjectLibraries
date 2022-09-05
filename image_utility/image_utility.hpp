@@ -1,9 +1,9 @@
-#include<jni.h>
-#include<android/native_window.h>
-#include<android/native_window_jni.h>
-#include<android/surface_texture.h>
-#include<android/surface_texture_jni.h>
-#include<algorithm>
+#include <jni.h>
+#include <android/native_window.h>
+#include <android/native_window_jni.h>
+#include <android/surface_texture.h>
+#include <android/surface_texture_jni.h>
+#include <algorithm>
 
 namespace image_utility {
     enum class YUV {

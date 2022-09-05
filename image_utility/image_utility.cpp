@@ -1,5 +1,5 @@
-#include"image_utility.hpp"
-#include<stdexcept>
+#include "image_utility.hpp"
+#include <stdexcept>
 
 image_utility::image_accessor_YUV_420_888::image_accessor_YUV_420_888(JNIEnv *const env, const jobject &image)
 {
