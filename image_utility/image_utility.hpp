@@ -13,7 +13,7 @@ namespace image_utility {
         R, G, B
     };
 
-    class image_accessor_YUV_420_888 {
+    class image_accessor_YUV_420_888 final {
     private:
         jint width, height;
         uint8_t *y_ptr, *u_ptr, *v_ptr;
@@ -39,7 +39,7 @@ namespace image_utility {
         }
     };
 
-    class surface_texture_accessor_R8G8B8X8 {
+    class surface_texture_accessor_R8G8B8X8 final {
     private:
         ASurfaceTexture *surface_texture;
         ANativeWindow *window;
@@ -66,12 +66,12 @@ namespace image_utility {
         }
     };
 
-    class coordinate_transformer {
+    class coordinate_transformer final {
     private:
         int image_height;
         int padding_x, padding_y;
         bool is_landscape;
-        struct coordinate {
+        struct coordinate final {
             int x, y;
         };
     public:
@@ -86,9 +86,9 @@ namespace image_utility {
         }
     };
 
-    class YUV_to_RGB {
+    class YUV_to_RGB final {
     private:
-        struct _RGB {
+        struct _RGB final {
             int R, G, B;
         };
     public:
